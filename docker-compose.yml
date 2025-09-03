@@ -1,0 +1,80 @@
+x-app-base: &app_base
+  build:
+    context: .
+  restart: unless-stopped
+  tty: true
+  volumes:
+    - .:/var/www
+  networks:
+    - network
+
+services:
+  web:
+    <<: *app_base
+    container_name: web
+    command: [ "php", "artisan", "serve", "--host", "0.0.0.0" ]
+    ports:
+      - "8000:8000"
+    depends_on:
+      - cache
+
+  # queues:
+  #   <<: *app_base
+  #   container_name: queues
+  #   command: [ "php", "artisan", "queue:work" ]
+  #   depends_on:
+  #     - cache
+
+  # scheduler:
+  #   <<: *app_base
+  #   container_name: scheduler
+  #   command: [ "sh", "-c", "while true; do php artisan schedule:run --verbose --no-interaction & sleep 60; done" ]
+  #   depends_on:
+  #     - web
+
+  frontend:
+    image: node:current-alpine
+    container_name: node
+    restart: unless-stopped
+    working_dir: /var/www
+    profiles:
+      - local
+    volumes:
+      - .:/var/www
+    networks:
+      - network
+    command: >
+      sh -c "npm run dev"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - web
+
+  db:
+    image: postgres:15
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: network
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - network
+  # cache:
+  #   image: redis:7
+  #   container_name: cache
+  #   restart: always
+  #   networks:
+  #     - network
+
+volumes:
+  pgdata:
+
+
+networks:
+  network:
+    driver: bridge
