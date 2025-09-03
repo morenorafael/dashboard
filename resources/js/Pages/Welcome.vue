@@ -5,7 +5,7 @@ import Content from "@/Layouts/Content.vue";
 
 <template>
     <AuthenticatedLayout>
-        <div class="pr-4 text-sm text-gray-600">
+        <div class="md:pr-4 px-4 text-sm text-gray-600">
             <Content class="divide-y divide-gray-200">
                 <div class="p-3">
                     <h1>Welcome!</h1>
@@ -14,7 +14,30 @@ import Content from "@/Layouts/Content.vue";
                     <h1>Welcome!</h1>
                 </div>
                 <div class="p-3">
-                    <h1>Welcome!</h1>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            asdasd
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            asdasd
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            asdasd
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            asdasd
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            asdasd
+                        </div>
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            asdasd
+                        </div>
+                    </div>
                 </div>
             </Content>
         </div>

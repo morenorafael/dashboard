@@ -7,7 +7,7 @@ import Nav from "@/components/Authenticated/Nav.vue";
     <Header />
 
     <div class="flex">
-        <Nav />
+        <Nav class="hidden md:block" />
 
         <main class="w-full">
             <slot />

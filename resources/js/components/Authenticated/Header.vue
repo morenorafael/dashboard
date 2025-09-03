@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import MobileNav from "./MobileNav.vue";
 import Search from "./Search.vue";
 </script>
 
 <template>
     <header class="px-4 py-2 flex items-center justify-between">
-        <div class="text-gray-600">
+        <MobileNav />
+        <div class="text-gray-600 ml-10 md:m-0">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -20,7 +22,7 @@ import Search from "./Search.vue";
                 />
             </svg>
         </div>
-        <div>
+        <div class="hidden md:block">
             <Search />
         </div>
         <div class="text-gray-800 space-x-2 flex items-center">
@@ -67,4 +69,8 @@ import Search from "./Search.vue";
             </button>
         </div>
     </header>
+
+    <div class="block md:hidden mb-4 px-4 w-full">
+        <Search />
+    </div>
 </template>

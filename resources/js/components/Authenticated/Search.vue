@@ -25,7 +25,7 @@ const clearTerm = () => {
 <template>
     <button
         @click="openDialog"
-        class="text-sm text-left bg-white w-96 rounded-md border border-gray-200 px-2 py-1 text-gray-500 flex items-center"
+        class="text-sm text-left bg-white w-full md:w-96 rounded-md border border-gray-200 px-2 py-1 text-gray-500 flex items-center"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
