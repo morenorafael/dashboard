@@ -5,7 +5,7 @@ import Content from "@/Layouts/Content.vue";
 
 <template>
     <AuthenticatedLayout>
-        <div class="px-4 text-sm text-gray-600">
+        <div class="pr-4 text-sm text-gray-600">
             <Content class="divide-y divide-gray-200">
                 <div class="p-3">
                     <h1>Welcome!</h1>
@@ -20,6 +20,5 @@ import Content from "@/Layouts/Content.vue";
         </div>
     </AuthenticatedLayout>
 </template>
-
 
 D40RB

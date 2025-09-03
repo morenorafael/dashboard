@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import Search from "./Search.vue";
+</script>
+
 <template>
     <header class="px-4 py-2 flex items-center justify-between">
         <div class="text-gray-600">
@@ -17,11 +21,7 @@
             </svg>
         </div>
         <div>
-            <div
-                class="bg-white w-96 rounded-md border border-gray-200 px-2 py-1 text-gray-500"
-            >
-                Search
-            </div>
+            <Search />
         </div>
         <div class="text-gray-800 space-x-2 flex items-center">
             <button class="hover:bg-gray-300/40 p-1 rounded-md">
@@ -43,9 +43,9 @@
             <button
                 class="hover:bg-gray-300/40 border border-transparent hover:border-gray-300 p-1 rounded-2xl"
             >
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2 text-xs">
                     <span
-                        class="bg-indigo-700 text-white size-6 block rounded-full"
+                        class="bg-indigo-700 text-white size-6 flex items-center justify-center rounded-full"
                         >R</span
                     >
 
