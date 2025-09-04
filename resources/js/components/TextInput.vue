@@ -23,7 +23,7 @@ onMounted(() => {
 
 const defaultClasses = computed(() => {
     return twMerge(
-        "border border-gray-200 rounded-md bg-white p-2",
+        "border border-gray-200 rounded-md bg-white p-1 text-sm",
         props.class,
     );
 });

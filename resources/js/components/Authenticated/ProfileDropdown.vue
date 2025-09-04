@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import {
+    ArrowLeftStartOnRectangleIcon,
+    BellIcon,
+    ChevronDownIcon,
+    Cog6ToothIcon,
+} from "@heroicons/vue/24/outline";
 import { Link } from "@inertiajs/vue3";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
@@ -37,42 +43,79 @@ onBeforeUnmount(() => {
 
 <template>
     <div class="relative">
-        <button ref="button" type="button">
-            <img
-                class="size-8 rounded-full bg-gray-600"
-                src="https://www.infobae.com/resizer/v2/N7KFYVSTR5DZTC3TRRBYBX2A4M.jpg?auth=623de4bfca6c5eecf9bb5ca8315ee593d2f76eb33abe1965d927d2822ce02eac&smart=true&width=1200&height=1200&quality=85"
-            />
+        <button
+            ref="button"
+            type="button"
+            class="hover:bg-gray-300/40 border hover:border-gray-300 p-1 rounded-2xl"
+            :class="{
+                'bg-gray-300/40 border-gray-300': open,
+                'border-transparent': !open,
+            }"
+        >
+            <div class="flex items-center space-x-2 text-xs">
+                <span
+                    class="bg-indigo-700 text-white size-6 flex items-center justify-center rounded-full"
+                    >R</span
+                >
+
+                <ChevronDownIcon class="size-3" />
+            </div>
         </button>
 
         <div
             v-show="open"
             ref="element"
-            class="absolute w-full px-4 z-50 right-62 top-13"
+            class="absolute w-full px-4 z-50 right-56 top-10"
         >
             <div
-                class="bg-white w-66 py-2 text-gray-700 rounded-xl border border-gray-300 text-sm"
+                class="bg-white w-66 text-gray-700 rounded-xl border border-gray-200 text-xs py-2"
             >
-                <Link
-                    :href="route('notification-settings.index')"
-                    class="w-full py-1 px-2 flex items-center"
+                <div
+                    class="flex text-gray-600 items-center space-x-2 mb-4 px-1 py-1 mx-3 rounded-md text-sm"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-5 mr-2"
+                    <span
+                        class="bg-indigo-700 text-white flex items-center justify-center rounded-full size-8"
+                        >R</span
                     >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-                        />
-                    </svg>
 
-                    Notificaciones
-                </Link>
+                    <div>
+                        <h3>Rafael Moreno</h3>
+                        <smal class="text-xs text-gray-400">En linea</smal>
+                    </div>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <div class="px-2 py-1">
+                        <Link
+                            href="#"
+                            class="w-full py-1 px-2 flex items-center hover:bg-gray-300/40 rounded-md"
+                        >
+                            <BellIcon class="size-5 mr-2" />
+
+                            Notificaciones
+                        </Link>
+
+                        <Link
+                            href="#"
+                            class="w-full py-1 px-2 flex items-center hover:bg-gray-300/40 rounded-md"
+                        >
+                            <Cog6ToothIcon class="size-5 mr-2" />
+
+                            Ajustes
+                        </Link>
+                    </div>
+                    <div class="px-2 py-1">
+                        <Link
+                            href="#"
+                            class="w-full py-1 px-2 flex items-center hover:bg-gray-300/40 rounded-md"
+                        >
+                            <ArrowLeftStartOnRectangleIcon
+                                class="size-5 mr-2"
+                            />
+
+                            Cerrar sesión
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
