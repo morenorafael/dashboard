@@ -68,7 +68,13 @@ const submit = () => {
                 </TextInputIcon>
             </div>
 
-            <PrimaryButton type="submit" dusk="btn-login" class="w-full">
+            <PrimaryButton
+                type="submit"
+                dusk="btn-login"
+                class="w-full"
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing"
+            >
                 Iniciar sesión
             </PrimaryButton>
         </form>

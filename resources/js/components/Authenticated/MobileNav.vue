@@ -38,7 +38,7 @@ const closeNav = () => {
     ></div>
 
     <div
-        class="absolute w-68 top-0 -left-68 bg-white border-r border-gray-200 py-4 transition duration-300 ease-in-out min-h-screen"
+        class="absolute z-50 w-68 top-0 -left-68 bg-white border-r border-gray-200 py-4 transition duration-300 ease-in-out min-h-screen"
         :class="{ 'translate-x-68': open }"
     >
         <Nav />

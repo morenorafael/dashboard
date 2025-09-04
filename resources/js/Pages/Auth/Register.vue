@@ -5,7 +5,11 @@ import PrimaryButton from "@/components/PrimaryButton.vue";
 import TextInput from "@/components/TextInput.vue";
 import TextInputIcon from "@/components/TextInputIcon.vue";
 import AuthLayout from "@/Layouts/AuthLayout.vue";
-import { EnvelopeIcon, LockClosedIcon } from "@heroicons/vue/24/outline";
+import {
+    EnvelopeIcon,
+    LockClosedIcon,
+    UserIcon,
+} from "@heroicons/vue/24/outline";
 import { Head, Link, useForm } from "@inertiajs/vue3";
 
 const form = useForm({
@@ -37,18 +41,19 @@ const submit = () => {
             </h1>
 
             <div>
-                <InputLabel for="name" value="Nombre" />
+                <InputLabel for="name" value="Nombre y apellido" />
 
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
+                <TextInputIcon
+                    :required="true"
                     v-model="form.name"
-                    required
-                    autofocus
-                    placeholder="Nombre"
-                    autocomplete="name"
-                />
+                    dusk="name"
+                    type="text"
+                    placeholder="John Doe"
+                >
+                    <template #icon>
+                        <UserIcon class="size-5 ml-1" />
+                    </template>
+                </TextInputIcon>
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
@@ -72,14 +77,14 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel value="Contraseña" />
+                <InputLabel value="Elige una contraseña" />
 
                 <TextInputIcon
                     :required="true"
                     v-model="form.password"
                     dusk="password"
                     type="password"
-                    placeholder="Escriba la contraseña"
+                    placeholder="Minimo 8 caracteres"
                 >
                     <template #icon>
                         <LockClosedIcon class="size-5 ml-1" />
@@ -112,7 +117,7 @@ const submit = () => {
 
             <div class="mt-4 flex items-center justify-end">
                 <PrimaryButton
-                    class="ms-4"
+                    class="w-full"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >

@@ -148,7 +148,7 @@ const clearTerm = () => {
                     <span class="mx-2 text-xs text-gray-500">Resultados</span>
 
                     <div class="my-4">
-                        <Button class="hover:bg-gray-200/80 w-full py-2">
+                        <button class="hover:bg-gray-200/80 w-full py-2">
                             <div
                                 class="mx-2 flex items-center space-x-2 text-left"
                             >
@@ -174,9 +174,9 @@ const clearTerm = () => {
                                     >
                                 </div>
                             </div>
-                        </Button>
+                        </button>
 
-                        <Button class="hover:bg-gray-200/80 w-full py-2">
+                        <button class="hover:bg-gray-200/80 w-full py-2">
                             <div
                                 class="mx-2 flex items-center space-x-2 text-left"
                             >
@@ -202,9 +202,9 @@ const clearTerm = () => {
                                     >
                                 </div>
                             </div>
-                        </Button>
+                        </button>
 
-                        <Button class="hover:bg-gray-200/80 w-full py-2">
+                        <button class="hover:bg-gray-200/80 w-full py-2">
                             <div
                                 class="mx-2 flex items-center space-x-2 text-left"
                             >
@@ -230,9 +230,9 @@ const clearTerm = () => {
                                     >
                                 </div>
                             </div>
-                        </Button>
+                        </button>
 
-                        <Button class="hover:bg-gray-200/80 w-full py-2">
+                        <button class="hover:bg-gray-200/80 w-full py-2">
                             <div
                                 class="mx-2 flex items-center space-x-2 text-left"
                             >
@@ -258,7 +258,7 @@ const clearTerm = () => {
                                     >
                                 </div>
                             </div>
-                        </Button>
+                        </button>
                     </div>
                 </div>
 
@@ -266,7 +266,7 @@ const clearTerm = () => {
                     <span class="mx-2 text-xs text-gray-500">Comandos</span>
 
                     <div class="my-4">
-                        <Button class="hover:bg-gray-200/80 w-full py-2">
+                        <button class="hover:bg-gray-200/80 w-full py-2">
                             <div
                                 class="mx-2 flex items-center space-x-2 text-left"
                             >
@@ -292,7 +292,7 @@ const clearTerm = () => {
                                     >
                                 </div>
                             </div>
-                        </Button>
+                        </button>
                     </div>
                 </div>
             </div>

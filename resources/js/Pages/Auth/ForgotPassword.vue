@@ -5,7 +5,7 @@ import PrimaryButton from "@/components/PrimaryButton.vue";
 import TextInputIcon from "@/components/TextInputIcon.vue";
 import AuthLayout from "@/Layouts/AuthLayout.vue";
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
-import { Head, useForm } from "@inertiajs/vue3";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 
 defineProps<{
     status?: string;
@@ -30,12 +30,6 @@ const submit = () => {
             <h1 class="text-xl text-center font-bold mb-6">
                 ¿Olvidaste tu contraseña?
             </h1>
-
-            <p class="text-sm text-gray-600">
-                No hay problema. Solo introduce tu correo electrónico y te
-                enviaremos un enlace para restablecer tu contraseña y podrás
-                elegir una nueva.
-            </p>
 
             <div
                 v-if="status"
@@ -64,11 +58,20 @@ const submit = () => {
 
             <div class="mt-4 flex items-center justify-end">
                 <PrimaryButton
+                    class="w-full"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
                     Restablecer de contraseña
                 </PrimaryButton>
+            </div>
+
+            <div class="w-full text-xs text-center">
+                <Link
+                    :href="route('login')"
+                    class="text-indigo-500 hover:underline decoration-dotted"
+                    >o iniciar sesión</Link
+                >
             </div>
         </form>
     </AuthLayout>
