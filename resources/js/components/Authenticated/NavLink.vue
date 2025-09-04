@@ -4,6 +4,7 @@ import { Link } from "@inertiajs/vue3";
 withDefaults(
     defineProps<{
         href: string;
+        text: string;
         active?: boolean;
     }>(),
     {
@@ -15,9 +16,12 @@ withDefaults(
 <template>
     <Link
         :href="href"
-        class="w-full px-2 py-1 flex items-center hover:bg-gray-300 rounded-lg"
-        :class="{ 'bg-indigo-200 font-semibold': active }"
+        class="hover:bg-gray-300/40 p-1 rounded-md flex items-center"
+        :class="{ 'bg-indigo-300/40 text-indigo-600': active }"
     >
-        <slot />
+        <slot v-if="active" name="activeIcon" />
+        <slot v-else name="icon" />
+
+        {{ text }}
     </Link>
 </template>

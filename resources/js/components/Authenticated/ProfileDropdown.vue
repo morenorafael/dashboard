@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
             <div class="flex items-center space-x-2 text-xs">
                 <span
                     class="bg-indigo-700 text-white size-6 flex items-center justify-center rounded-full"
-                    >R</span
+                    >{{ $page.props.auth.user.first_letter_name }}</span
                 >
 
                 <ChevronDownIcon class="size-3" />
@@ -75,11 +75,11 @@ onBeforeUnmount(() => {
                 >
                     <span
                         class="bg-indigo-700 text-white flex items-center justify-center rounded-full size-8"
-                        >R</span
+                        >{{ $page.props.auth.user.first_letter_name }}</span
                     >
 
                     <div>
-                        <h3>Rafael Moreno</h3>
+                        <h3>{{ $page.props.auth.user.name }}</h3>
                         <smal class="text-xs text-gray-400">En linea</smal>
                     </div>
                 </div>
@@ -105,7 +105,9 @@ onBeforeUnmount(() => {
                     </div>
                     <div class="px-2 py-1">
                         <Link
-                            href="#"
+                            :href="route('logout')"
+                            method="post"
+                            as="button"
                             class="w-full py-1 px-2 flex items-center hover:bg-gray-300/40 rounded-md"
                         >
                             <ArrowLeftStartOnRectangleIcon

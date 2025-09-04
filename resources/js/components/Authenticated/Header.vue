@@ -7,14 +7,19 @@ import Search from "./Search.vue";
 <template>
     <header class="px-4 py-2 flex items-center justify-between">
         <MobileNav />
-        <div class="text-gray-600 ml-10 md:m-0">
+
+        <div
+            class="fixed -top-8 -left-4 -z-10 w-96 h-22 rounded-4xl bg-radial-[at_25%_25%] from-indigo-500/30 to-gray-100 to-75%"
+        ></div>
+
+        <div class="text-gray-600 ml-10 md:m-0 bg-white rounded-full p-1">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="size-6"
+                class="size-5"
             >
                 <path
                     stroke-linecap="round"

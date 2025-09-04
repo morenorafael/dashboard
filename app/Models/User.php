@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -34,6 +36,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The attributes that should be appended to serialization.
+     *
+     * @var list<string>
+     */
+    protected $appends = [
+        'first_letter_name',
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -44,5 +55,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    protected function firstLetterName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => substr($this->name, 0, 1),
+        );
     }
 }

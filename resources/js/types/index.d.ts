@@ -45,6 +45,7 @@ export type AppPageProps<
 
 export interface User {
     id: number;
+    first_letter_name: string;
     name: string;
     email: string;
     avatar?: string;

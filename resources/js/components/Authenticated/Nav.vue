@@ -2,11 +2,15 @@
 import { Link } from "@inertiajs/vue3";
 import {
     ChevronDownIcon,
+    HomeIcon,
     InboxIcon,
     ChatBubbleBottomCenterTextIcon,
     Cog6ToothIcon,
+    StopCircleIcon,
 } from "@heroicons/vue/24/outline";
 import { HomeIcon as HomeIconSolid } from "@heroicons/vue/24/solid";
+import { StopCircleIcon as StopCircleIconSolid } from "@heroicons/vue/24/solid";
+import NavLink from "./NavLink.vue";
 </script>
 
 <template>
@@ -26,14 +30,19 @@ import { HomeIcon as HomeIconSolid } from "@heroicons/vue/24/solid";
 
         <div class="divide-y divide-gray-300 space-y-4">
             <div class="px-4 pb-4 text-sm space-y-1">
-                <Link
-                    href="#"
-                    class="hover:bg-gray-300/40 bg-indigo-300/40 text-indigo-600 p-1 rounded-md flex items-center"
+                <NavLink
+                    :href="route('dashboard')"
+                    text="Inicio"
+                    :active="route().current('dashboard')"
                 >
-                    <HomeIconSolid class="size-4 mr-2 text-indigo-500" />
+                    <template #icon>
+                        <HomeIcon class="size-4 mr-2 text-gray-500" />
+                    </template>
 
-                    Inicio
-                </Link>
+                    <template #activeIcon>
+                        <HomeIconSolid class="size-4 mr-2 text-indigo-500" />
+                    </template>
+                </NavLink>
 
                 <Link
                     href="#"
@@ -70,27 +79,21 @@ import { HomeIcon as HomeIconSolid } from "@heroicons/vue/24/solid";
             <div class="px-4 pb-4 text-sm space-y-1">
                 <small class="text-gray-600 block my-2">Components</small>
 
-                <Link
+                <NavLink
                     :href="route('components.alerts')"
-                    class="hover:bg-gray-300/40 p-1 rounded-md flex items-center"
+                    text="Alertas"
+                    :active="route().current('components.alerts')"
                 >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="size-4 mr-2 text-gray-500"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                        />
-                    </svg>
+                    <template #icon>
+                        <StopCircleIcon class="size-4 mr-2 text-gray-500" />
+                    </template>
 
-                    Alertas
-                </Link>
+                    <template #activeIcon>
+                        <StopCircleIconSolid
+                            class="size-4 mr-2 text-indigo-500"
+                        />
+                    </template>
+                </NavLink>
             </div>
         </div>
     </div>
