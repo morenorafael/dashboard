@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
             class="absolute w-full px-4 z-50 right-56 top-10"
         >
             <div
-                class="bg-white w-66 text-gray-700 rounded-xl border border-gray-200 text-xs py-2"
+                class="bg-white w-66 text-gray-700 rounded-xl border border-gray-200 text-xs py-2 shadow-lg"
             >
                 <div
                     class="flex text-gray-600 items-center space-x-2 mb-4 px-1 py-1 mx-3 rounded-md text-sm"
