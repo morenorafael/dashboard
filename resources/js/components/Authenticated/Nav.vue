@@ -94,6 +94,22 @@ import NavLink from "./NavLink.vue";
                         />
                     </template>
                 </NavLink>
+
+                <NavLink
+                    :href="route('components.tabs')"
+                    text="Tabs"
+                    :active="route().current('components.tabs')"
+                >
+                    <template #icon>
+                        <StopCircleIcon class="size-4 mr-2 text-gray-500" />
+                    </template>
+
+                    <template #activeIcon>
+                        <StopCircleIconSolid
+                            class="size-4 mr-2 text-indigo-500"
+                        />
+                    </template>
+                </NavLink>
             </div>
         </div>
     </div>
