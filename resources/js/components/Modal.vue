@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Dialog from './Dialog.vue';
+import Dialog from "./Dialog.vue";
 
 withDefaults(
     defineProps<{
@@ -15,7 +15,9 @@ withDefaults(
 
 <template>
     <Dialog :show="show" :maxWidth="maxWidth">
-        <div class="border-b border-gray-200 p-4 flex justify-between items-center">
+        <div
+            class="border-b border-gray-200 p-4 flex justify-between items-center"
+        >
             <slot name="header" />
         </div>
 

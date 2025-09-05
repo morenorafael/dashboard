@@ -52,10 +52,10 @@ onBeforeUnmount(() => {
             <div
                 v-show="open"
                 ref="element"
-                class="absolute w-full px-4 right-62 top-10 z-10"
+                class="fixed md:absolute w-full px-4 left-0 md:left-auto md:right-92 top-12 md:top-10 z-10"
             >
                 <div
-                    class="bg-white w-66 text-gray-700 rounded-xl border border-gray-200 text-xs py-2 shadow-lg"
+                    class="bg-white w-full md:w-96 text-gray-700 rounded-xl border border-gray-200 text-xs py-2 shadow-lg"
                 >
                     <h2 class="font-semibold px-2 py-1">Notificaciones</h2>
 
