@@ -7,17 +7,15 @@ const model = defineModel<string | number | null>({ required: true });
 const input = ref<HTMLInputElement | null>(null);
 
 const props = defineProps<{
-    mask?: string | null;
     autofocus?: boolean | null;
     dusk?: string;
+    name?: string;
     class?: string;
 }>();
 
 onMounted(() => {
-    if (props.mask === null) {
-        if (input.value?.hasAttribute("autofocus")) {
-            input.value?.focus();
-        }
+    if (input.value?.hasAttribute("autofocus")) {
+        input.value?.focus();
     }
 });
 
@@ -36,7 +34,7 @@ defineExpose({ focus: () => input.value?.focus() });
         :class="defaultClasses"
         v-model="model"
         :dusk="dusk"
-        autocomplete="off"
+        :name="name"
         ref="input"
     />
 </template>

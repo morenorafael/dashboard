@@ -8,9 +8,9 @@ const input = ref<HTMLInputElement | null>(null);
 
 const props = withDefaults(
     defineProps<{
-        mask?: string | null;
         autofocus?: boolean | null;
         dusk?: string;
+        name?: string;
         class?: string;
         placeholder?: string;
         type?: string;
@@ -23,10 +23,8 @@ const props = withDefaults(
 );
 
 onMounted(() => {
-    if (props.mask === null) {
-        if (input.value?.hasAttribute("autofocus")) {
-            input.value?.focus();
-        }
+    if (input.value?.hasAttribute("autofocus")) {
+        input.value?.focus();
     }
 });
 
@@ -50,7 +48,7 @@ defineExpose({ focus: () => input.value?.focus() });
             :type="type"
             :dusk="dusk"
             :required="required"
-            autocomplete="off"
+            :name="name"
             :placeholder="placeholder"
             ref="input"
         />

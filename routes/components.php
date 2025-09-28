@@ -10,4 +10,5 @@ Route::group([
 ], function () {
     Route::get('alerts', fn () => Inertia::render('Components/Alerts'))->name('alerts');
     Route::get('tabs', fn () => Inertia::render('Components/Tabs'))->name('tabs');
+    Route::get('form', fn () => Inertia::render('Components/Form'))->name('form');
 });

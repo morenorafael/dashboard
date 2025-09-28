@@ -18,6 +18,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
+        "laravel/dusk": "^8.3",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.24",
         "laravel/sail": "^1.41",
@@ -51,7 +52,9 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
+            "@php artisan migrate --graceful --ansi",
+            "@php artisan dusk:install",
+            "@php artisan dusk:chrome-driver --detect"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
@@ -60,6 +63,10 @@
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "dusk": [
+            "@php artisan config:clear --ansi",
+            "@php artisan dusk"
         ]
     },
     "extra": {

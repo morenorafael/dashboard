@@ -36,6 +36,7 @@ const submit = () => {
                     :required="true"
                     v-model="form.email"
                     dusk="email"
+                    name="email"
                     type="email"
                     placeholder="Ingresa tu correo electrónico"
                 >
@@ -52,6 +53,7 @@ const submit = () => {
                     v-model="form.password"
                     dusk="password"
                     type="password"
+                    name="password"
                     placeholder="Escriba la contraseña"
                 >
                     <template #icon>

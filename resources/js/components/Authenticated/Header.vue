@@ -10,7 +10,7 @@ import Search from "./Search.vue";
         <MobileNav />
 
         <div
-            class="fixed -top-8 -left-4 -z-10 w-96 h-22 rounded-4xl bg-radial-[at_25%_25%] from-indigo-300/30 to-gray-50 to-75%"
+            class="fixed -top-8 -left-4 -z-10 w-96 h-22 rounded-4xl bg-radial-[at_25%_50%] from-indigo-300/40 to-gray-50 to-75%"
         ></div>
 
         <div class="text-gray-600 ml-10 md:m-0 bg-white rounded-full p-1">
