@@ -14,7 +14,7 @@ import NavLink from "./NavLink.vue";
 </script>
 
 <template>
-    <div class="w-68">
+    <div class="w-72">
         <button
             class="flex text-gray-600 items-center space-x-2 mb-4 px-1 py-1 mx-3 rounded-md text-sm hover:bg-gray-300/40"
         >
@@ -28,7 +28,7 @@ import NavLink from "./NavLink.vue";
             <ChevronDownIcon class="size-3" />
         </button>
 
-        <div class="divide-y divide-gray-300 space-y-4">
+        <div class="divide-y divide-gray-200 space-y-4">
             <div class="px-4 pb-4 text-sm space-y-1">
                 <NavLink
                     :href="route('dashboard')"

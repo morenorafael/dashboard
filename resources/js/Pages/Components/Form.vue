@@ -64,7 +64,7 @@ const people = [
 
 <template>
     <AuthenticatedLayout>
-        <div class="md:pr-4 px-4 text-sm text-gray-600">
+        <div class="md:pr-4 text-sm text-gray-600">
             <Content class="divide-y divide-gray-200">
                 <div class="p-3">
                     <h3 class="mb-4">Input text</h3>
