@@ -3,9 +3,6 @@ set -e
 
 crond -l 2 -f &
 
-echo "Running migrations..."
-php artisan migrate --force
-
 echo "Optimizing Laravel..."
 php artisan optimize
 

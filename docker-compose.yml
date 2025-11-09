@@ -1,18 +1,18 @@
 x-app-base: &app_base
   build:
     context: .
+    dockerfile: Dockerfile.dev
   restart: unless-stopped
   tty: true
   volumes:
     - .:/var/www
   networks:
-    - network
+    - dash-network
 
 services:
   web:
     <<: *app_base
-    container_name: web
-    command: [ "php", "artisan", "serve", "--host", "0.0.0.0" ]
+    container_name: dash-web
     ports:
       - "8000:8000"
     depends_on:
@@ -20,31 +20,29 @@ services:
 
   # queues:
   #   <<: *app_base
-  #   container_name: queues
+  #   container_name: dash-queues
   #   command: [ "php", "artisan", "queue:work" ]
   #   depends_on:
   #     - cache
 
   # scheduler:
   #   <<: *app_base
-  #   container_name: scheduler
+  #   container_name: dash-scheduler
   #   command: [ "sh", "-c", "while true; do php artisan schedule:run --verbose --no-interaction & sleep 60; done" ]
   #   depends_on:
   #     - web
 
   frontend:
     image: node:current-alpine
-    container_name: node
+    container_name: dash-node
     restart: unless-stopped
     working_dir: /var/www
-    profiles:
-      - local
     volumes:
       - .:/var/www
     networks:
-      - network
+      - dash-network
     command: >
-      sh -c "npm run dev"
+      sh -c "npm install && npm run dev"
     ports:
       - "5173:5173"
     depends_on:
@@ -52,29 +50,30 @@ services:
 
   db:
     image: postgres:15
-    container_name: db
+    container_name: dash-db
     restart: unless-stopped
     ports:
-      - "5435:5432"
+      - "5432:5432"
     environment:
-      POSTGRES_DB: network
+      POSTGRES_DB: dashboard
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
-      - network
-  # cache:
-  #   image: redis:7
-  #   container_name: cache
-  #   restart: always
-  #   networks:
-  #     - network
+      - dash-network
+
+  cache:
+    image: redis:7
+    container_name: dash-cache
+    restart: always
+    networks:
+      - dash-network
 
 volumes:
   pgdata:
 
 
 networks:
-  network:
+  dash-network:
     driver: bridge

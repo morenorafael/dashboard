@@ -2,7 +2,6 @@
 import InputError from "@/components/InputError.vue";
 import InputLabel from "@/components/InputLabel.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
-import TextInput from "@/components/TextInput.vue";
 import TextInputIcon from "@/components/TextInputIcon.vue";
 import AuthLayout from "@/Layouts/AuthLayout.vue";
 import {
