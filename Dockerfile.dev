@@ -32,12 +32,17 @@ WORKDIR /var/www
 # Copiar archivos del backend (sin node_modules ni dist aún)
 COPY . .
 
+# Instalar dependencias de Composer
+RUN composer install
+
+# Instalar Octane con RoadRunner
+RUN php artisan octane:install --server=roadrunner --no-interaction
+
 # Permisos
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN chown -R 1000:1000 /var/www/storage /var/www/bootstrap/cache
 
 # Cron
 COPY docker/cronjob /etc/crontabs/root
 RUN touch /var/www/storage/logs/cron.log
 
-COPY docker/dev/entrypoint.sh /usr/local/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+USER 1000
