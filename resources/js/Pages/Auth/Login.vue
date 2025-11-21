@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import InputLabel from "@/components/InputLabel.vue";
-import PrimaryButton from "@/components/PrimaryButton.vue";
-import TextInputIcon from "@/components/TextInputIcon.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import TextInputIcon from "@/Components/TextInputIcon.vue";
 import AuthLayout from "@/Layouts/AuthLayout.vue";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/vue/24/outline";
 import { Link, useForm } from "@inertiajs/vue3";

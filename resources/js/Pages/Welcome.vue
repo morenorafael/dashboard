@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-
+import PageTitle from "@/Components/PageTitle.vue";
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 </script>
 
 <template>
     <AuthenticatedLayout>
-        <h1>Hola</h1>
+            <PageTitle subtitle="Menu" title="Starter Page" />
+            <div class="card h-40"></div>
     </AuthenticatedLayout>
 </template>

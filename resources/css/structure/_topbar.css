@@ -3,7 +3,7 @@
 // */
 
 .app-header {
-  .topbar-item {
-    @apply h-9.5 flex items-center;
-  }
+    .topbar-item {
+        @apply h-9.5 flex items-center;
+    }
 }

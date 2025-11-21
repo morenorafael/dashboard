@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Select from "@/components/Select.vue";
-import TextInput from "@/components/TextInput.vue";
-import TextInputIcon from "@/components/TextInputIcon.vue";
+import Select from "@/Components/Select.vue";
+import TextInput from "@/Components/TextInput.vue";
+import TextInputIcon from "@/Components/TextInputIcon.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import Content from "@/Layouts/Content.vue";
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";

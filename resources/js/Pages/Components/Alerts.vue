@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Alert from "@/components/Alert.vue";
+import Alert from "@/Components/Alert.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import Content from "@/Layouts/Content.vue";
 </script>

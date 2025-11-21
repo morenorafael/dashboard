@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Tab from "@/components/Tab.vue";
-import Tabs from "@/components/Tabs.vue";
+import Tab from "@/Components/Tab.vue";
+import Tabs from "@/Components/Tabs.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import Content from "@/Layouts/Content.vue";
 </script>

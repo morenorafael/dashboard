@@ -6,14 +6,14 @@ import type { DefineComponent } from "vue";
 import { createApp, h } from "vue";
 import { ZiggyVue } from "ziggy-js";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import '../css/style.css';
-import 'preline/dist';
+import "swiper/css";
+import "swiper/css/pagination";
+import "../css/style.css";
+import "preline/dist";
 
-import { createHead } from '@vueuse/head';
+// import { createHead } from "@vueuse/head";
 import { createPinia } from "pinia";
-import piniaPersistedState from 'pinia-plugin-persistedstate'
+import piniaPersistedState from "pinia-plugin-persistedstate";
 
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 

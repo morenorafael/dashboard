@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { SelectButtonOption } from "@/components/SelectButton/SelectButton";
-import SelectButton from "@/components/SelectButton/SelectButton.vue";
-import Tab from "@/components/Tab.vue";
-import Tabs from "@/components/Tabs.vue";
+import { SelectButtonOption } from "@/Components/SelectButton/SelectButton";
+import SelectButton from "@/Components/SelectButton/SelectButton.vue";
+import Tab from "@/Components/Tab.vue";
+import Tabs from "@/Components/Tabs.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import Content from "@/Layouts/Content.vue";
 import { ref } from "vue";
