@@ -13,8 +13,10 @@ services:
   web:
     <<: *app_base
     container_name: dash-web
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
     command: >
-      sh -c "composer install && php artisan serve --host=0.0.0.0 --port=8000"
+      sh -c "php artisan serve --host=0.0.0.0 --port=8000"
     ports:
       - "8000:8000"
     depends_on:
@@ -41,6 +43,7 @@ services:
     working_dir: /var/www
     volumes:
       - .:/var/www
+    user: "1000:1000"
     networks:
       - dash-network
     command: >
@@ -57,11 +60,24 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: dashboard
+      POSTGRES_DB: dash
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - dash-network
+
+  db_dusk:
+    image: postgres:15
+    container_name: dash-db-dusk
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dash_dusk
+      POSTGRES_USER: postgres_dusk
+      POSTGRES_PASSWORD: secret_dusk
+    volumes:
+      - pgdata_dusk:/var/lib/postgresql/data
     networks:
       - dash-network
 
@@ -72,8 +88,20 @@ services:
     networks:
       - dash-network
 
+  chromedriver:
+    image: seleniarm/standalone-chromium
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    container_name: dash-chromedriver
+    shm_size: 2gb
+    ports:
+      - "9515:4444"
+    networks:
+      - dash-network
+
 volumes:
   pgdata:
+  pgdata_dusk:
 
 
 networks:
