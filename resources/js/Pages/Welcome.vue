@@ -1,5 +1,10 @@
-<template>
-    <h1>Welcome!</h1>
-</template>
+<script setup lang="ts">
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 
-<!-- D40RB -->
+</script>
+
+<template>
+    <AuthenticatedLayout>
+        <h1>Hola</h1>
+    </AuthenticatedLayout>
+</template>
